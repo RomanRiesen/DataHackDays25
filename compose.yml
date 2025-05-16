@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  app: # This service name matches the "service" field in devcontainer.json
+    build:
+      context: .
+      dockerfile: Dockerfile # Refers to the Dockerfile in the current directory
+      target: dev # Uses the 'dev' stage from the Dockerfile
+    volumes:
+      - .:/app # Mounts the current directory into the container at /app
+    ports:
+      - "8888:8888" # Expose the JupyterLab port
+    # command: ["sleep", "infinity"] # Keep the container running for development
+    # If you use the CMD in the Dockerfile, you don't strictly need this command here,
+    # but sometimes sleep infinity is useful to keep the container running
+    # while the dev container attaches.
+
+  qdrant: # Define the Qdrant service
+    image: qdrant/qdrant:latest # Use the latest Qdrant image
+    container_name: qdrant # Optional: give the container a specific name
+    ports:
+      - "6333:6333" # gRPC port
+      - "6334:6334" # REST port
+    volumes:
+      - qdrant_data:/qdrant/storage # Persist Qdrant data
+
+volumes:
+  qdrant_data: # Define the volume for Qdrant data persistence
