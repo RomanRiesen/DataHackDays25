@@ -1,0 +1,48 @@
+{
+	"name": "muninbot",
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "app", // This is the name of the service in your docker-compose.yml that you want to connect to
+	"workspaceFolder": "/app", // The path within the container that VS Code should open
+	"hostRequirements": {
+		// https://github.com/microsoft/vscode-remote-release/issues/9220#issuecomment-1820855769
+		// Adds --gpus=all to runArgs if GPUs are found
+		"gpu": "optional"
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"charliermarsh.ruff",
+				"christian-kohler.path-intellisense",
+				"DavidAnson.vscode-markdownlint",
+				"eamodio.gitlens",
+				"GitHub.copilot",
+				"ms-azuretools.vscode-docker",
+				"ms-python.isort",
+				"ms-python.mypy-type-checker",
+				"ms-python.python",
+				"mutantdino.resourcemonitor",
+				"redhat.vscode-yaml",
+				"tamasfe.even-better-toml"
+			],
+			"settings": {
+				//"terminal.integrated.defaultProfile.linux": "zsh",
+				//"terminal.integrated.profiles.linux": {
+				//	"zsh": {
+				//		"path": "/bin/zsh"
+				//	}
+			},
+			"mypy-type-checker.importStrategy": "fromEnvironment",
+			"mypy-type-checker.preferDaemon": true,
+			"mypy-type-checker.reportingScope": "workspace",
+			"editor.formatOnSave": true,
+			"python.analysis.typeCheckingMode": "strict"
+		}
+	}
+},
+"remoteEnv": {
+	"PROMPT": "%d > "
+},
+"remoteUser": "dockeruser",
+"portsAttributes": {},
+"postStartCommand": "git config --global --add safe.directory ${containerWorkspaceFolder}",
+}
