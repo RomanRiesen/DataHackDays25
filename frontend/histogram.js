@@ -17,7 +17,7 @@ const data = {
             "votum_startzeit": "2024-12-03 09:41:00.324",
             "votum_text": "Einzelsprecher. <i>(Grossrat Müller wendet sich an Grossrätin Bossard-Jenni.\xa0/ Le député Müller s'adresse à la députée Bossard-Jenni.)</i> Du kannst mir sonst dein Zitat geben; ich hätte vielleicht am Schluss noch ein bisschen Zeit, um es zu verlesen.<p>Ich möchte sagen, dass es hier in diesem Saal Leute gibt, die damals schon dabei waren. Ich gehöre auch dazu. Ich kam 2013 in diesen Rat, und ich möchte Ihnen einfach in Erinnerung rufen, insbesondere jenen, die nicht an diesem Kompromiss geschmiedet haben: Es war ein hartes Ringen damals. Man hat sich das nicht leicht gemacht. Man hat nicht einfach gesagt: «Ja, dann verschieben wir diese Schulen ein bisschen dahin und ein bisschen dorthin.» Es war wirklich auch eine Kröte, die wir aus den Regionen Oberaargau und Emmental schlucken mussten. Burgdorf gab die TF nicht einfach so mir nichts, dir nichts ab. Herr Pulver machte damals einen sehr guten Job, aber noch heute muss man sagen: Es war das kleinste gemeinsame Vielfache\xa0– das kleinste!\xa0– und nicht irgendwie der grösste gemeinsame Teiler, den es gibt, sondern wirklich das kleinste Machbare, das man sich damals politisch vorstellen konnte.<p>Gegenüber denjenigen, die <i>vor</i> Ihnen hier auf diesen Stühlen sassen, muss man schon auch sagen: Bitte würdigen Sie mit entsprechendem Respekt, was sich diese Leute damals überlegt haben. Natürlich: «Der Kopf ist rund, damit das Denken seine Richtung ändern kann», sagte Regierungsrat Käser anno dazumal immer, aber trotzdem ist nicht alles, was man früher aus Gründen entschied, per se schlecht.<p>Ausserdem wird uns immer wieder gesagt: «Liebe Oberaargauer, liebe Emmentaler, schauen Sie dies nicht wirklich als regionalen Entscheid an, sondern als gesamtkantonalen.» Aber ich muss Sie schon auf etwas hinweisen: auf den Eindruck, dass auf der Achse Thun–Bern–Biel oder darüber hinaus\xa0– bis nach Tavannes oder bis nach Interlaken\xa0– ein Projekt so viel kosten darf, wie es nur geht. Wir sprechen hier Nachkredit um Nachkredit für Dinge, die in Interlaken im Boden versaufen und in Tavannes unbrauchbar gekauft werden. Es ist nicht ganz zu negieren, dass man hier auf dieser Nord-Süd-Achse wirklich auch Respekt haben und dort auch investieren muss.<p>Heute werden jetzt schon wieder Luftschlösser gebaut: «Ja, Burgdorf, sei jetzt noch ein bisschen ruhig, wir geben dir dann schon irgendwie eine Schule für Gestaltung» oder Weiss-der-Hund-was, eine dieser 67 fehlenden Gymnasialklassen, und dann ist wieder gut. Das ist aber nicht mehr als ein Luftschloss, zum heutigen Zeitpunkt. Und dieses ewige Vertröstetwerden\xa0– dort, wo wir eben sind\xa0–, sei das beim Waldhof oder sei es in diesem Fall hier, geht für uns einfach irgendeinmal nicht mehr auf.<p>Also, noch das Zitat: «Politische Strategien sind nicht das Papier wert.» Das wäre noch das Zitat von Frau Bossard gewesen.",
             "votum_url": "https://www.tagblatt.gr.be.ch/shareparl?agendaItemUid=7974df5e483a4a4e82dbb469cb04d048&segmentUid=674f141abb90b13428f09b22",
-            "Übersicht vom": "2025-05-16 14:30",
+            "uebersicht_vom": "2025-05-16 14:30",
             "name": "Reto Müller",
             "gemeinde": "Langenthal",
             "partei": "SP"
@@ -34,7 +34,7 @@ const data = {
             "votum_startzeit": "2024-12-03 09:44:02.047",
             "votum_text": "Einzelsprecher. Ich bin nach vorne gekommen, weil noch keine Sparvorschläge gemacht worden sind. Die Schule für Gestaltung ist in Deisswil, wenn ich richtig informiert bin, für 10\xa0Jahre eingemietet. Ich gehe davon aus, dass man dort einen Vertrag gemacht hat. Man hat dort eigentlich einen nackten Raum gemietet, den man so gestaltet, dass man die Schule für Gestaltung dort 10\xa0Jahre lang betreiben kann. Wenn man diesen Vertrag jetzt künden oder die Schule früher wieder herausnehmen sollte, wären diese Investitionen\xa0– ich muss es heute so sagen\xa0– ein weiteres Mal in den Dreck gesetzt.<p>Und längerfristig kann ich Ihnen schon Sparvorschläge aufzeigen, nämlich auch verkehrstechnische Sparvorschläge: Wenn unsere Züge, die RBS im Worblental von Worb nach Bern, jeden Morgen einseitig überfüllt und in der Gegenrichtung leer sind, und wenn die Züge von Burgdorf in Richtung Bern\xa0– ich höre immer wieder Klagen\xa0– überfüllt sind und man stehen muss, sie aber in der Gegenrichtung leer sind, könnten wir langfristig verkehrspolitisch Entscheide fällen, indem man vielleicht auch gewisse dezentrale Standorte fördern würde, damit wir diesbezüglich auch verkehrspolitisch mal eine Korrektur machen könnten.<p>Vielen Dank, wenn Sie der Planungserklärung Bärtschi nicht zustimmen, aber dafür die Planungserklärung Rothenbühler annehmen. Merci.",
             "votum_url": "https://www.tagblatt.gr.be.ch/shareparl?agendaItemUid=7974df5e483a4a4e82dbb469cb04d048&segmentUid=674f141abb90b13428f09b24",
-            "Übersicht vom": "2025-05-18 16:30",
+            "uebersicht_vom": "2025-05-18 16:30",
             "name": "Hanspeter Steiner",
             "gemeinde": "Boll",
             "partei": "EVP"
@@ -51,7 +51,7 @@ const data = {
             "votum_startzeit": "2024-12-03 09:44:02.047",
             "votum_text": "Einzelsprecher. Ich bin nach vorne gekommen, weil noch keine Sparvorschläge gemacht worden sind. Die Schule für Gestaltung ist in Deisswil, wenn ich richtig informiert bin, für 10\xa0Jahre eingemietet. Ich gehe davon aus, dass man dort einen Vertrag gemacht hat. Man hat dort eigentlich einen nackten Raum gemietet, den man so gestaltet, dass man die Schule für Gestaltung dort 10\xa0Jahre lang betreiben kann. Wenn man diesen Vertrag jetzt künden oder die Schule früher wieder herausnehmen sollte, wären diese Investitionen\xa0– ich muss es heute so sagen\xa0– ein weiteres Mal in den Dreck gesetzt.<p>Und längerfristig kann ich Ihnen schon Sparvorschläge aufzeigen, nämlich auch verkehrstechnische Sparvorschläge: Wenn unsere Züge, die RBS im Worblental von Worb nach Bern, jeden Morgen einseitig überfüllt und in der Gegenrichtung leer sind, und wenn die Züge von Burgdorf in Richtung Bern\xa0– ich höre immer wieder Klagen\xa0– überfüllt sind und man stehen muss, sie aber in der Gegenrichtung leer sind, könnten wir langfristig verkehrspolitisch Entscheide fällen, indem man vielleicht auch gewisse dezentrale Standorte fördern würde, damit wir diesbezüglich auch verkehrspolitisch mal eine Korrektur machen könnten.<p>Vielen Dank, wenn Sie der Planungserklärung Bärtschi nicht zustimmen, aber dafür die Planungserklärung Rothenbühler annehmen. Merci.",
             "votum_url": "https://www.tagblatt.gr.be.ch/shareparl?agendaItemUid=7974df5e483a4a4e82dbb469cb04d048&segmentUid=674f141abb90b13428f09b24",
-            "Übersicht vom": "2025-05-16 13:30",
+            "uebersicht_vom": "2025-05-16 13:30",
             "name": "Hanspeter Steiner",
             "gemeinde": "Boll",
             "partei": "EVP"
@@ -68,7 +68,7 @@ const data = {
             "votum_startzeit": "2024-12-03 09:44:02.047",
             "votum_text": "motion_content",
             "votum_url": "https://www.tagblatt.gr.be.ch/shareparl?agendaItemUid=7974df5e483a4a4e82dbb469cb04d048&segmentUid=674f141abb90b13428f09b24",
-            "Übersicht vom": "2025-05-15 12:30",
+            "uebersicht_vom": "2025-05-15 12:30",
             "name": "Hanspeter Steiner",
             "gemeinde": "Boll",
             "partei": "EVP"
@@ -80,7 +80,7 @@ const data = {
 const groupedData = {};
 
 data.answers.forEach(item => {
-  const date = item["Übersicht vom"].split(' ')[0]; // Extract just the date part
+  const date = item["uebersicht_vom"].split(' ')[0]; // Extract just the date part
   const type = item.type;
   
   if (!groupedData[date]) {

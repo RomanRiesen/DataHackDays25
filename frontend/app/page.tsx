@@ -8,7 +8,7 @@ import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Toolti
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
-import { Search } from "lucide-react"
+import { Search, ExternalLink } from "lucide-react"
 
 // Register Chart.js components
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
@@ -25,10 +25,12 @@ const sampleData = {
       votum_mitglied: "Reto Müller",
       votum_startzeit: "2023-03-15 10:41:00.324",
       votum_text: "Speech content about environmental policies.",
-      "Übersicht vom": "2023-03-15 10:30",
+      uebersicht_vom: "2023-03-15 10:30",
       name: "Reto Müller",
       gemeinde: "Langenthal",
       partei: "SP",
+      votum_url:
+        "https://www.tagblatt.gr.be.ch/shareparl?agendaItemUid=7974df5e483a4a4e82dbb469cb04d048&segmentUid=674f141abb90b13428f09b22",
     },
     {
       type: "motion",
@@ -37,11 +39,13 @@ const sampleData = {
       votum_mitglied: "Hanspeter Steiner",
       votum_startzeit: "2023-03-15 11:44:02.047",
       votum_text: "Motion about wildlife protection zones.",
-      "Übersicht vom": "2023-03-15 11:30",
+      uebersicht_vom: "2023-03-15 11:30",
       name: "Hanspeter Steiner",
       gemeinde: "Boll",
       partei: "EVP",
       passed: "true",
+      votum_url:
+        "https://www.tagblatt.gr.be.ch/shareparl?agendaItemUid=7974df5e483a4a4e82dbb469cb04d048&segmentUid=674f141abb90b13428f09b24",
     },
     {
       type: "motion",
@@ -50,11 +54,13 @@ const sampleData = {
       votum_mitglied: "Anna Schmidt",
       votum_startzeit: "2023-05-22 09:15:02.047",
       votum_text: "Motion regarding wolf population control measures.",
-      "Übersicht vom": "2023-05-22 09:15",
+      uebersicht_vom: "2023-05-22 09:15",
       name: "Anna Schmidt",
       gemeinde: "Bern",
       partei: "SVP",
       passed: "false",
+      votum_url:
+        "https://www.tagblatt.gr.be.ch/shareparl?agendaItemUid=7974df5e483a4a4e82dbb469cb04d048&segmentUid=674f141abb90b13428f09b25",
     },
 
     // 2023 - Fall session
@@ -65,10 +71,12 @@ const sampleData = {
       votum_mitglied: "Thomas Weber",
       votum_startzeit: "2023-09-05 14:21:00.324",
       votum_text: "Speech discussing agricultural challenges with predators.",
-      "Übersicht vom": "2023-09-05 14:20",
+      uebersicht_vom: "2023-09-05 14:20",
       name: "Thomas Weber",
       gemeinde: "Thun",
       partei: "FDP",
+      votum_url:
+        "https://www.tagblatt.gr.be.ch/shareparl?agendaItemUid=7974df5e483a4a4e82dbb469cb04d048&segmentUid=674f141abb90b13428f09b26",
     },
     {
       type: "motion",
@@ -77,11 +85,13 @@ const sampleData = {
       votum_mitglied: "Maria Brunner",
       votum_startzeit: "2023-09-05 15:30:02.047",
       votum_text: "Motion proposing revisions to the wildlife management regulations.",
-      "Übersicht vom": "2023-09-05 15:30",
+      uebersicht_vom: "2023-09-05 15:30",
       name: "Maria Brunner",
       gemeinde: "Interlaken",
       partei: "GLP",
-      passed: "unresolved",
+      passed: "true",
+      votum_url:
+        "https://www.tagblatt.gr.be.ch/shareparl?agendaItemUid=7974df5e483a4a4e82dbb469cb04d048&segmentUid=674f141abb90b13428f09b27",
     },
 
     // 2024 data - Early year (note the gap between Sept 2023 and March 2024)
@@ -92,10 +102,12 @@ const sampleData = {
       votum_mitglied: "Peter Schneider",
       votum_startzeit: "2024-03-12 09:30:00.324",
       votum_text: "Speech about the winter impact on wildlife.",
-      "Übersicht vom": "2024-03-12 09:30",
+      uebersicht_vom: "2024-03-12 09:30",
       name: "Peter Schneider",
       gemeinde: "Spiez",
       partei: "SP",
+      votum_url:
+        "https://www.tagblatt.gr.be.ch/shareparl?agendaItemUid=7974df5e483a4a4e82dbb469cb04d048&segmentUid=674f141abb90b13428f09b28",
     },
     {
       type: "motion",
@@ -104,11 +116,13 @@ const sampleData = {
       votum_mitglied: "Sarah Keller",
       votum_startzeit: "2024-03-12 11:15:02.047",
       votum_text: "Motion for additional funding for wildlife monitoring.",
-      "Übersicht vom": "2024-03-12 11:15",
+      uebersicht_vom: "2024-03-12 11:15",
       name: "Sarah Keller",
       gemeinde: "Köniz",
       partei: "Grüne",
       passed: "true",
+      votum_url:
+        "https://www.tagblatt.gr.be.ch/shareparl?agendaItemUid=7974df5e483a4a4e82dbb469cb04d048&segmentUid=674f141abb90b13428f09b29",
     },
 
     // 2024 data - Summer (several items on same day)
@@ -117,50 +131,58 @@ const sampleData = {
       score: "0.23",
       votum_uid: "9d9fa829-040c-4789-bbca-f38366036471",
       votum_mitglied: "Christine Meier",
-      votum_startzeit: "2024-06-18 10:00:00.324",
+      votum_startzeit: "2024-04-18 10:00:00.324",
       votum_text: "Speech addressing farmer concerns about livestock predation.",
-      "Übersicht vom": "2024-06-18 10:00",
+      uebersicht_vom: "2024-04-18 10:00",
       name: "Christine Meier",
       gemeinde: "Meiringen",
       partei: "SVP",
+      votum_url:
+        "https://www.tagblatt.gr.be.ch/shareparl?agendaItemUid=7974df5e483a4a4e82dbb469cb04d048&segmentUid=674f141abb90b13428f09b30",
     },
     {
       type: "speech",
       score: "0.17",
       votum_uid: "1d9fa829-040c-4789-bbca-f38366036472",
       votum_mitglied: "Martin Gerber",
-      votum_startzeit: "2024-06-18 10:45:00.324",
+      votum_startzeit: "2024-04-18 10:45:00.324",
       votum_text: "Response to concerns about wolf sightings near residential areas.",
-      "Übersicht vom": "2024-06-18 10:45",
+      uebersicht_vom: "2024-04-18 10:45",
       name: "Martin Gerber",
       gemeinde: "Steffisburg",
       partei: "FDP",
+      votum_url:
+        "https://www.tagblatt.gr.be.ch/shareparl?agendaItemUid=7974df5e483a4a4e82dbb469cb04d048&segmentUid=674f141abb90b13428f09b31",
     },
     {
       type: "motion",
       score: "0.28",
       votum_uid: "8fd27c00-c0ae-4e3d-911f-32114d3a0f91",
       votum_mitglied: "Laura Huber",
-      votum_startzeit: "2024-06-18 14:30:02.047",
+      votum_startzeit: "2024-04-18 14:30:02.047",
       votum_text: "Motion for establishing clear guidelines for wolf management in the canton.",
-      "Übersicht vom": "2024-06-18 14:30",
+      uebersicht_vom: "2024-04-18 14:30",
       name: "Laura Huber",
       gemeinde: "Burgdorf",
       partei: "SP",
       passed: "true",
+      votum_url:
+        "https://www.tagblatt.gr.be.ch/shareparl?agendaItemUid=7974df5e483a4a4e82dbb469cb04d048&segmentUid=674f141abb90b13428f09b32",
     },
     {
       type: "motion",
       score: "0.16",
       votum_uid: "9fd27c00-c0ae-4e3d-911f-32114d3a0f92",
       votum_mitglied: "Daniel Zimmermann",
-      votum_startzeit: "2024-06-18 15:45:02.047",
+      votum_startzeit: "2024-04-18 15:45:02.047",
       votum_text: "Counter-motion regarding balance between wildlife protection and agricultural interests.",
-      "Übersicht vom": "2024-06-18 15:45",
+      uebersicht_vom: "2024-04-18 15:45",
       name: "Daniel Zimmermann",
       gemeinde: "Biel",
       partei: "SVP",
       passed: "false",
+      votum_url:
+        "https://www.tagblatt.gr.be.ch/shareparl?agendaItemUid=7974df5e483a4a4e82dbb469cb04d048&segmentUid=674f141abb90b13428f09b33",
     },
 
     // 2024 data - December
@@ -169,28 +191,32 @@ const sampleData = {
       score: "0.14",
       votum_uid: "2d9fa829-040c-4789-bbca-f38366036473",
       votum_mitglied: "Silvia Berger",
-      votum_startzeit: "2024-12-10 09:15:00.324",
+      votum_startzeit: "2024-05-10 09:15:00.324",
       votum_text: "Year-end summary of wildlife management initiatives.",
-      "Übersicht vom": "2024-12-10 09:15",
+      uebersicht_vom: "2024-05-10 09:15",
       name: "Silvia Berger",
       gemeinde: "Thun",
       partei: "Grüne",
+      votum_url:
+        "https://www.tagblatt.gr.be.ch/shareparl?agendaItemUid=7974df5e483a4a4e82dbb469cb04d048&segmentUid=674f141abb90b13428f09b34",
     },
     {
       type: "motion",
       score: "0.26",
       votum_uid: "1fd27c00-c0ae-4e3d-911f-32114d3a0f93",
       votum_mitglied: "Michael Wagner",
-      votum_startzeit: "2024-12-10 11:00:02.047",
+      votum_startzeit: "2024-05-10 11:00:02.047",
       votum_text: "Motion for a review of the annual wolf monitoring program.",
-      "Übersicht vom": "2024-12-10 11:00",
+      uebersicht_vom: "2024-05-10 11:00",
       name: "Michael Wagner",
       gemeinde: "Langnau",
       partei: "EVP",
-      passed: "unresolved",
+      passed: "true",
+      votum_url:
+        "https://www.tagblatt.gr.be.ch/shareparl?agendaItemUid=7974df5e483a4a4e82dbb469cb04d048&segmentUid=674f141abb90b13428f09b35",
     },
 
-    // Original 2025 data
+    // Original data
     {
       type: "speech",
       score: "0.2",
@@ -200,12 +226,12 @@ const sampleData = {
       element_nummer: 42,
       votum_mitglied: "Reto Müller",
       mitglied_uid: "cffee9e3317441ed9ce9f6a86a58a59d",
-      votum_startzeit: "2024-12-03 09:41:00.324",
+      votum_startzeit: "2022-12-03 09:41:00.324",
       votum_text:
         "Einzelsprecher. <i>(Grossrat Müller wendet sich an Grossrätin Bossard-Jenni.\xa0/ Le député Müller s'adresse à la députée Bossard-Jenni.)</i> Du kannst mir sonst dein Zitat geben; ich hätte vielleicht am Schluss noch ein bisschen Zeit, um es zu verlesen.<p>Ich möchte sagen, dass es hier in diesem Saal Leute gibt, die damals schon dabei waren. Ich gehöre auch dazu. Ich kam 2013 in diesen Rat, und ich möchte Ihnen einfach in Erinnerung rufen, insbesondere jenen, die nicht an diesem Kompromiss geschmiedet haben: Es war ein hartes Ringen damals. Man hat sich das nicht leicht gemacht. Man hat nicht einfach gesagt: «Ja, dann verschieben wir diese Schulen ein bisschen dahin und ein bisschen dorthin.» Es war wirklich auch eine Kröte, die wir aus den Regionen Oberaargau und Emmental schlucken mussten. Burgdorf gab die TF nicht einfach so mir nichts, dir nichts ab. Herr Pulver machte damals einen sehr guten Job, aber noch heute muss man sagen: Es war das kleinste gemeinsame Vielfache\xa0– das kleinste!\xa0– und nicht irgendwie der grösste gemeinsame Teiler, den es gibt, sondern wirklich das kleinste Machbare, das man sich damals politisch vorstellen konnte.<p>Gegenüber denjenigen, die <i>vor</i> Ihnen hier auf diesen Stühlen sassen, muss man schon auch sagen: Bitte würdigen Sie mit entsprechendem Respekt, was sich diese Leute damals überlegt haben. Natürlich: «Der Kopf ist rund, damit das Denken seine Richtung ändern kann», sagte Regierungsrat Käser anno dazumal immer, aber trotzdem ist nicht alles, was man früher aus Gründen entschied, per se schlecht.<p>Ausserdem wird uns immer wieder gesagt: «Liebe Oberaargauer, liebe Emmentaler, schauen Sie dies nicht wirklich als regionalen Entscheid an, sondern als gesamtkantonalen.» Aber ich muss Sie schon auf etwas hinweisen: auf den Eindruck, dass auf der Achse Thun–Bern–Biel oder darüber hinaus\xa0– bis nach Tavannes oder bis nach Interlaken\xa0– ein Projekt so viel kosten darf, wie es nur geht. Wir sprechen hier Nachkredit um Nachkredit für Dinge, die in Interlaken im Boden versaufen und in Tavannes unbrauchbar gekauft werden. Es ist nicht ganz zu negieren, dass man hier auf dieser Nord-Süd-Achse wirklich auch Respekt haben und dort auch investieren muss.<p>Heute werden jetzt schon wieder Luftschlösser gebaut: «Ja, Burgdorf, sei jetzt noch ein bisschen ruhig, wir geben dir dann schon irgendwie eine Schule für Gestaltung» oder Weiss-der-Hund-was, eine dieser 67 fehlenden Gymnasialklassen, und dann ist wieder gut. Das ist aber nicht mehr als ein Luftschloss, zum heutigen Zeitpunkt. Und dieses ewige Vertröstetwerden\xa0– dort, wo wir eben sind\xa0–, sei das beim Waldhof oder sei es in diesem Fall hier, geht für uns einfach irgendeinmal nicht mehr auf.<p>Also, noch das Zitat: «Politische Strategien sind nicht das Papier wert.» Das wäre noch das Zitat von Frau Bossard gewesen.",
       votum_url:
         "https://www.tagblatt.gr.be.ch/shareparl?agendaItemUid=7974df5e483a4a4e82dbb469cb04d048&segmentUid=674f141abb90b13428f09b22",
-      "Übersicht vom": "2025-05-16 14:30",
+      uebersicht_vom: "2022-05-16 14:30",
       name: "Reto Müller",
       gemeinde: "Langenthal",
       partei: "SP",
@@ -219,12 +245,12 @@ const sampleData = {
       element_nummer: 43,
       votum_mitglied: "Hanspeter Steiner",
       mitglied_uid: "0a36576df3834e9d8d6df6689fc5734b",
-      votum_startzeit: "2024-12-03 09:44:02.047",
+      votum_startzeit: "2022-12-03 09:44:02.047",
       votum_text:
         "Einzelsprecher. Ich bin nach vorne gekommen, weil noch keine Sparvorschläge gemacht worden sind. Die Schule für Gestaltung ist in Deisswil, wenn ich richtig informiert bin, für 10\xa0Jahre eingemietet. Ich gehe davon aus, dass man dort einen Vertrag gemacht hat. Man hat dort eigentlich einen nackten Raum gemietet, den man so gestaltet, dass man die Schule für Gestaltung dort 10\xa0Jahre lang betreiben kann. Wenn man diesen Vertrag jetzt künden oder die Schule früher wieder herausnehmen sollte, wären diese Investitionen\xa0– ich muss es heute so sagen\xa0– ein weiteres Mal in den Dreck gesetzt.<p>Und längerfristig kann ich Ihnen schon Sparvorschläge aufzeigen, nämlich auch verkehrstechnische Sparvorschläge: Wenn unsere Züge, die RBS im Worblental von Worb nach Bern, jeden Morgen einseitig überfüllt und in der Gegenrichtung leer sind, und wenn die Züge von Burgdorf in Richtung Bern\xa0– ich höre immer wieder Klagen\xa0– überfüllt sind und man stehen muss, sie aber in der Gegenrichtung leer sind, könnten wir langfristig verkehrspolitisch Entscheide fällen, indem man vielleicht auch gewisse dezentrale Standorte fördern würde, damit wir diesbezüglich auch verkehrspolitisch mal eine Korrektur machen könnten.<p>Vielen Dank, wenn Sie der Planungserklärung Bärtschi nicht zustimmen, aber dafür die Planungserklärung Rothenbühler annehmen. Merci.",
       votum_url:
         "https://www.tagblatt.gr.be.ch/shareparl?agendaItemUid=7974df5e483a4a4e82dbb469cb04d048&segmentUid=674f141abb90b13428f09b24",
-      "Übersicht vom": "2025-05-18 16:30",
+      uebersicht_vom: "2022-05-18 16:30",
       name: "Hanspeter Steiner",
       gemeinde: "Boll",
       partei: "EVP",
@@ -238,12 +264,12 @@ const sampleData = {
       element_nummer: 43,
       votum_mitglied: "Hanspeter Steiner",
       mitglied_uid: "0a36576df3834e9d8d6df6689fc5734b",
-      votum_startzeit: "2024-12-03 09:44:02.047",
+      votum_startzeit: "2022-12-03 09:44:02.047",
       votum_text:
         "Einzelsprecher. Ich bin nach vorne gekommen, weil noch keine Sparvorschläge gemacht worden sind. Die Schule für Gestaltung ist in Deisswil, wenn ich richtig informiert bin, für 10\xa0Jahre eingemietet. Ich gehe davon aus, dass man dort einen Vertrag gemacht hat. Man hat dort eigentlich einen nackten Raum gemietet, den man so gestaltet, dass man die Schule für Gestaltung dort 10\xa0Jahre lang betreiben kann. Wenn man diesen Vertrag jetzt künden oder die Schule früher wieder herausnehmen sollte, wären diese Investitionen\xa0– ich muss es heute so sagen\xa0– ein weiteres Mal in den Dreck gesetzt.<p>Und längerfristig kann ich Ihnen schon Sparvorschläge aufzeigen, nämlich auch verkehrstechnische Sparvorschläge: Wenn unsere Züge, die RBS im Worblental von Worb nach Bern, jeden Morgen einseitig überfüllt und in der Gegenrichtung leer sind, und wenn die Züge von Burgdorf in Richtung Bern\xa0– ich höre immer wieder Klagen\xa0– überfüllt sind und man stehen muss, sie aber in der Gegenrichtung leer sind, könnten wir langfristig verkehrspolitisch Entscheide fällen, indem man vielleicht auch gewisse dezentrale Standorte fördern würde, damit wir diesbezüglich auch verkehrspolitisch mal eine Korrektur machen könnten.<p>Vielen Dank, wenn Sie der Planungserklärung Bärtschi nicht zustimmen, aber dafür die Planungserklärung Rothenbühler annehmen. Merci.",
       votum_url:
         "https://www.tagblatt.gr.be.ch/shareparl?agendaItemUid=7974df5e483a4a4e82dbb469cb04d048&segmentUid=674f141abb90b13428f09b24",
-      "Übersicht vom": "2025-05-16 13:30",
+      uebersicht_vom: "2022-05-16 13:30",
       name: "Hanspeter Steiner",
       gemeinde: "Boll",
       partei: "EVP",
@@ -257,11 +283,11 @@ const sampleData = {
       element_nummer: 43,
       motion: "Hanspeter Steiner",
       mitglied_uid: "0a36576df3834e9d8d6df6689fc5734b",
-      votum_startzeit: "2024-12-03 09:44:02.047",
+      votum_startzeit: "2022-12-03 09:44:02.047",
       votum_text: "motion_content",
       votum_url:
         "https://www.tagblatt.gr.be.ch/shareparl?agendaItemUid=7974df5e483a4a4e82dbb469cb04d048&segmentUid=674f141abb90b13428f09b24",
-      "Übersicht vom": "2025-05-15 12:30",
+      uebersicht_vom: "2022-05-15 12:30",
       name: "Hanspeter Steiner",
       gemeinde: "Boll",
       partei: "EVP",
@@ -276,11 +302,11 @@ const sampleData = {
       element_nummer: 44,
       motion: "Anna Schmidt",
       mitglied_uid: "1a36576df3834e9d8d6df6689fc5734c",
-      votum_startzeit: "2024-12-03 10:15:02.047",
+      votum_startzeit: "2022-12-03 10:15:02.047",
       votum_text: "another_motion_content",
       votum_url:
         "https://www.tagblatt.gr.be.ch/shareparl?agendaItemUid=7974df5e483a4a4e82dbb469cb04d048&segmentUid=674f141abb90b13428f09b25",
-      "Übersicht vom": "2025-05-15 12:30",
+      uebersicht_vom: "2022-05-15 12:30",
       name: "Anna Schmidt",
       gemeinde: "Bern",
       partei: "SVP",
@@ -295,71 +321,79 @@ const sampleData = {
       element_nummer: 45,
       motion: "Thomas Weber",
       mitglied_uid: "2a36576df3834e9d8d6df6689fc5734d",
-      votum_startzeit: "2024-12-03 11:30:02.047",
+      votum_startzeit: "2022-12-03 11:30:02.047",
       votum_text: "third_motion_content",
       votum_url:
         "https://www.tagblatt.gr.be.ch/shareparl?agendaItemUid=7974df5e483a4a4e82dbb469cb04d048&segmentUid=674f141abb90b13428f09b26",
-      "Übersicht vom": "2025-05-16 13:30",
+      uebersicht_vom: "2022-05-16 13:30",
       name: "Thomas Weber",
       gemeinde: "Thun",
       partei: "FDP",
-      passed: "unresolved",
+      passed: "true",
     },
 
-    // 2025 data - Fall session
+    // 2022 data - Fall session
     {
       type: "speech",
       score: "0.13",
       votum_uid: "3d9fa829-040c-4789-bbca-f38366036474",
       votum_mitglied: "Johannes Bauer",
-      votum_startzeit: "2025-09-10 10:30:00.324",
+      votum_startzeit: "2022-09-10 10:30:00.324",
       votum_text: "Discussion of the annual wildlife report focusing on wolf populations.",
-      "Übersicht vom": "2025-09-10 10:30",
+      uebersicht_vom: "2022-09-10 10:30",
       name: "Johannes Bauer",
       gemeinde: "Meiringen",
       partei: "SVP",
+      votum_url:
+        "https://www.tagblatt.gr.be.ch/shareparl?agendaItemUid=7974df5e483a4a4e82dbb469cb04d048&segmentUid=674f141abb90b13428f09b36",
     },
 
-    // 2026 data - Spring
+    // 2023 data - Spring
     {
       type: "motion",
       score: "0.27",
       votum_uid: "2fd27c00-c0ae-4e3d-911f-32114d3a0f94",
       votum_mitglied: "Elisabeth Moser",
-      votum_startzeit: "2026-03-20 09:30:02.047",
+      votum_startzeit: "2023-03-20 09:30:02.047",
       votum_text: "Motion for implementing improved livestock protection measures.",
-      "Übersicht vom": "2026-03-20 09:30",
+      uebersicht_vom: "2023-03-20 09:30",
       name: "Elisabeth Moser",
       gemeinde: "Worb",
       partei: "GLP",
       passed: "true",
+      votum_url:
+        "https://www.tagblatt.gr.be.ch/shareparl?agendaItemUid=7974df5e483a4a4e82dbb469cb04d048&segmentUid=674f141abb90b13428f09b37",
     },
     {
       type: "speech",
       score: "0.12",
       votum_uid: "4d9fa829-040c-4789-bbca-f38366036475",
       votum_mitglied: "Robert Schwarz",
-      votum_startzeit: "2026-03-20 11:00:00.324",
+      votum_startzeit: "2023-03-20 11:00:00.324",
       votum_text: "Response to the motion regarding livestock protection from wolves.",
-      "Übersicht vom": "2026-03-20 11:00",
+      uebersicht_vom: "2023-03-20 11:00",
       name: "Robert Schwarz",
       gemeinde: "Oberhofen",
       partei: "Grüne",
+      votum_url:
+        "https://www.tagblatt.gr.be.ch/shareparl?agendaItemUid=7974df5e483a4a4e82dbb469cb04d048&segmentUid=674f141abb90b13428f09b38",
     },
 
-    // 2026 data - Summer
+    // 2023 data - Summer
     {
       type: "motion",
       score: "0.24",
       votum_uid: "3fd27c00-c0ae-4e3d-911f-32114d3a0f95",
       votum_mitglied: "Claudia Fischer",
-      votum_startzeit: "2026-06-15 13:45:02.047",
+      votum_startzeit: "2023-06-15 13:45:02.047",
       votum_text: "Motion proposing updated framework for wildlife conservation.",
-      "Übersicht vom": "2026-06-15 13:45",
+      uebersicht_vom: "2023-06-15 13:45",
       name: "Claudia Fischer",
       gemeinde: "Thun",
       partei: "SP",
-      passed: "unresolved",
+      passed: "true",
+      votum_url:
+        "https://www.tagblatt.gr.be.ch/shareparl?agendaItemUid=7974df5e483a4a4e82dbb469cb04d048&segmentUid=674f141abb90b13428f09b39",
     },
   ],
 }
@@ -368,7 +402,7 @@ const sampleData = {
 const colors = {
   black: "rgba(0, 0, 0, 0.8)",
   gold: "rgba(255, 215, 48, 0.8)", // #FFD730
-  red: "rgba(232, 66, 63, 0.8)", // #E8423F
+  red: "rgba(200, 40, 40, 0.8)", // #E8423F
   gray: "rgba(108, 117, 125, 0.8)",
 }
 
@@ -387,21 +421,34 @@ export default function Home() {
   const [timeRange, setTimeRange] = useState<{ start: string; end: string }>({ start: "", end: "" })
 
   // Function to handle search
-  const handleSearch = (e: React.FormEvent) => {
+  const handleSearch = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSearching(true)
     setSearchQuery(searchInput)
 
-    // Simulate API call with a delay
-    setTimeout(() => {
-      // In a real app, you would fetch data from an API here
-      // For now, we'll just use our sample data
+    try {
+      const response = await fetch(`http://localhost:8000/search_votum?keyword=${encodeURIComponent(searchInput)}`)
+      if (!response.ok) {
+        throw new Error('Search request failed')
+      }
+      const data = await response.json()
+
+      console.log(data)
+
+      setSearchResults({
+        q: searchInput,
+        answers: data
+      })
+    } catch (error) {
+      console.error('Error performing search:', error)
+      // Fallback to sample data in case of error
       setSearchResults({
         ...sampleData,
         q: searchInput,
       })
+    } finally {
       setIsSearching(false)
-    }, 800)
+    }
   }
 
   // Function to group data by month and year with trimmed empty months
@@ -423,7 +470,7 @@ export default function Home() {
 
     // Process all data points to find months with actual data
     data.forEach((item: any) => {
-      const dateParts = item["Übersicht vom"].split(" ")[0].split("-")
+      const dateParts = item["votum_startzeit"].split(" ")[0].split("-")
       const year = Number(dateParts[0])
       const month = Number(dateParts[1])
       const itemDate = new Date(year, month - 1, Number(dateParts[2]))
@@ -562,7 +609,7 @@ export default function Home() {
     const formatMonthYear = (dateStr: string) => {
       const [year, month] = dateStr.split("-")
       const date = new Date(Number(year), Number(month) - 1, 1)
-      return date.toLocaleDateString("en-US", { month: "short", year: "numeric" })
+      return date.toLocaleDateString("de-DE", { month: "short", year: "numeric" })
     }
 
     // Prepare data for the chart with new color scheme
@@ -570,25 +617,25 @@ export default function Home() {
       labels: sortedDates.map(formatMonthYear),
       datasets: [
         {
-          label: "Speeches",
+          label: "Reden",
           data: sortedDates.map((date) => groupedData[date].speech),
           backgroundColor: colors.black,
           stack: "Stack 0",
         },
         {
-          label: "Motions (Passed)",
+          label: "Motionen (angenommen)",
           data: sortedDates.map((date) => groupedData[date].motionPassed),
           backgroundColor: colors.gold,
           stack: "Stack 1",
         },
         {
-          label: "Motions (Failed)",
+          label: "Motionen (abgelehnt)",
           data: sortedDates.map((date) => groupedData[date].motionFailed),
           backgroundColor: colors.red,
           stack: "Stack 1",
         },
         {
-          label: "Motions (Unresolved)",
+          label: "Motionen (unentschieden)",
           data: sortedDates.map((date) => groupedData[date].motionUnresolved),
           backgroundColor: colors.gray,
           stack: "Stack 1",
@@ -627,7 +674,7 @@ export default function Home() {
       },
       title: {
         display: true,
-        text: "Histogram of Speeches and Motions by Month/Year",
+        text: "Histogramm der Reden und Motionen",
       },
       tooltip: {
         callbacks: {
@@ -645,7 +692,7 @@ export default function Home() {
         stacked: true,
         title: {
           display: true,
-          text: "Count",
+          text: "Anzahl",
         },
         ticks: {
           stepSize: 1,
@@ -655,7 +702,7 @@ export default function Home() {
         stacked: true,
         title: {
           display: true,
-          text: "Month/Year",
+          text: "Monat/Jahr",
         },
       },
     },
@@ -685,22 +732,40 @@ export default function Home() {
     return "bg-black text-white" // Default
   }
 
+  // Helper function to translate type and status
+  const translateType = (type: string) => {
+    return type === "speech" ? "Rede" : "Motion"
+  }
+
+  const translateStatus = (status: string) => {
+    if (status === "true") return "angenommen"
+    if (status === "false") return "abgelehnt"
+    return "unentschieden"
+  }
+
+  // Format date to German format
+  const formatDate = (dateStr: string) => {
+
+  }
+
   return (
     <div className="container mx-auto py-8 bg-gray-100">
       <div className="mb-8">
-        <h1 className="text-3xl font-bold mb-4 text-center text-black">Parliamentary Speech Search</h1>
-        <p className="text-center text-gray-600 mb-6">Search for speeches and motions in the parliamentary database</p>
+        <h1 className="text-3xl font-bold mb-4 text-center text-black">Parlamentsreden-Suche</h1>
+        <p className="text-center text-gray-600 mb-6">
+          Suche nach Reden und Motionen in der parlamentarischen Datenbank
+        </p>
 
         <Card className="mb-8 shadow-sm">
-          <CardHeader className="border-b border-black">
-            <CardTitle className="text-black">Search</CardTitle>
-            <CardDescription>Enter keywords to search for speeches and motions</CardDescription>
+          <CardHeader className="">
+            <CardTitle className="text-black">Suche</CardTitle>
+            <CardDescription>Geben Sie Suchbegriffe für Reden und Motionen ein</CardDescription>
           </CardHeader>
           <CardContent>
             <form onSubmit={handleSearch} className="relative">
               <Input
                 type="text"
-                placeholder="Enter search terms..."
+                placeholder="Suchbegriffe eingeben..."
                 value={searchInput}
                 onChange={(e) => setSearchInput(e.target.value)}
                 className="pr-12 border-black rounded-full"
@@ -723,11 +788,37 @@ export default function Home() {
 
       {searchResults && (
         <>
+          <Card className="mb-8 border-black">
+            <CardHeader className="border-b border-black">
+              <CardTitle className="text-black">Histogramm der Reden und Motionen</CardTitle>
+              <CardDescription>Verteilung nach Monat mit Status der Motionen</CardDescription>
+            </CardHeader>
+            <CardContent>
+              {chartData ? (
+                <div className="h-[500px]">
+                  <Bar options={options} data={chartData} />
+                </div>
+              ) : (
+                <p>Diagrammdaten werden geladen...</p>
+              )}
+            </CardContent>
+          </Card>
+
+          <div className="py-6 px-4 bg-gray-200 mb-8 rounded-none">
+            <h2 className="text-2xl font-semibold mb-2 text-black">Ergebnisse für: "{searchQuery}"</h2>
+            <p className="text-gray-600">
+              {searchResults.answers.length} Ergebnisse gefunden im Zeitraum von {timeRange.start} bis {timeRange.end}
+            </p>
+            <p className="text-gray-600 mt-1">
+              Daten verfügbar für {monthsWithData} von {totalMonths} Monaten im angezeigten Bereich
+            </p>
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
             <Card className="border-black">
               <CardHeader className="pb-2 border-b border-black">
-                <CardTitle className="text-black">Total Speeches</CardTitle>
-                <CardDescription>Number of speeches in the results</CardDescription>
+                <CardTitle className="text-black">Reden insgesamt</CardTitle>
+                <CardDescription>Anzahl der Reden in den Ergebnissen</CardDescription>
               </CardHeader>
               <CardContent>
                 <p className="text-4xl font-bold text-black">{totalSpeeches}</p>
@@ -736,23 +827,23 @@ export default function Home() {
 
             <Card className="border-black">
               <CardHeader className="pb-2 border-b border-black">
-                <CardTitle className="text-black">Total Motions</CardTitle>
-                <CardDescription>Number of motions in the results</CardDescription>
+                <CardTitle className="text-black">Motionen insgesamt</CardTitle>
+                <CardDescription>Anzahl der Motionen in den Ergebnissen</CardDescription>
               </CardHeader>
               <CardContent>
                 <p className="text-4xl font-bold text-black">{totalMotions}</p>
                 <div className="mt-2 grid grid-cols-3 gap-2 text-sm">
                   <div className="flex flex-col items-center">
                     <div className="w-4 h-4 bg-[#FFD730] mb-1"></div>
-                    <span className="text-xs text-center">Passed: {motionStatusSummary.passed}</span>
+                    <span className="text-xs text-center">Angenommen: {motionStatusSummary.passed}</span>
                   </div>
                   <div className="flex flex-col items-center">
                     <div className="w-4 h-4 bg-[#E8423F] mb-1"></div>
-                    <span className="text-xs text-center">Failed: {motionStatusSummary.failed}</span>
+                    <span className="text-xs text-center">Abgelehnt: {motionStatusSummary.failed}</span>
                   </div>
                   <div className="flex flex-col items-center">
                     <div className="w-4 h-4 bg-[#6C757D] mb-1"></div>
-                    <span className="text-xs text-center">Unresolved: {motionStatusSummary.unresolved}</span>
+                    <span className="text-xs text-center">Unentschieden: {motionStatusSummary.unresolved}</span>
                   </div>
                 </div>
               </CardContent>
@@ -760,60 +851,34 @@ export default function Home() {
 
             <Card className="border-black">
               <CardHeader className="pb-2 border-b border-black">
-                <CardTitle className="text-black">Total Items</CardTitle>
-                <CardDescription>Combined speeches and motions</CardDescription>
+                <CardTitle className="text-black">Einträge insgesamt</CardTitle>
+                <CardDescription>Reden und Motionen zusammen</CardDescription>
               </CardHeader>
               <CardContent>
                 <p className="text-4xl font-bold text-black">{totalSpeeches + totalMotions}</p>
                 <p className="text-sm text-gray-500 mt-2">
-                  Coverage: {Math.round((monthsWithData / totalMonths) * 100)}% of displayed months
                 </p>
               </CardContent>
             </Card>
           </div>
 
-          <Card className="mb-8 border-black">
-            <CardHeader className="border-b border-black">
-              <CardTitle className="text-black">Histogram of Speeches and Motions</CardTitle>
-              <CardDescription>Distribution by month with motion status</CardDescription>
-            </CardHeader>
-            <CardContent>
-              {chartData ? (
-                <div className="h-[500px]">
-                  <Bar options={options} data={chartData} />
-                </div>
-              ) : (
-                <p>Loading chart data...</p>
-              )}
-            </CardContent>
-          </Card>
-
-          <div className="py-6 px-4 bg-gray-200 mb-8 rounded-none">
-            <h2 className="text-2xl font-semibold mb-2 text-black">Results for: "{searchQuery}"</h2>
-            <p className="text-gray-600">
-              Found {searchResults.answers.length} results spanning from {timeRange.start} to {timeRange.end}
-            </p>
-            <p className="text-gray-600 mt-1">
-              Data available for {monthsWithData} out of {totalMonths} months in the displayed range
-            </p>
-          </div>
 
           <Card className="mb-8 border-black">
             <CardHeader className="border-b border-black">
-              <CardTitle className="text-black">Items by Relevance</CardTitle>
-              <CardDescription>Individual speeches and motions sorted by relevance score</CardDescription>
+              <CardTitle className="text-black">Einträge nach Relevanz</CardTitle>
+              <CardDescription>Einzelne Reden und Motionen sortiert nach Relevanzwert</CardDescription>
             </CardHeader>
             <CardContent>
               <div className="overflow-x-auto">
                 <table className="w-full border-collapse">
                   <thead>
                     <tr className="border-b border-black">
-                      <th className="text-left py-2 px-4">Type</th>
-                      <th className="text-left py-2 px-4">Speaker</th>
-                      <th className="text-left py-2 px-4 bg-[rgba(0,0,0,0.03)]">Party</th>
-                      <th className="text-left py-2 px-4">Date</th>
-                      <th className="text-center py-2 px-4 bg-[rgba(0,0,0,0.03)]">Status</th>
-                      <th className="text-center py-2 px-4 bg-[rgba(255,215,48,0.1)]">Score</th>
+                      <th className="text-left py-2 px-4">Typ</th>
+                      <th className="text-left py-2 px-4">Redner/in</th>
+                      <th className="text-left py-2 px-4 bg-[rgba(0,0,0,0.03)]">Partei</th>
+                      <th className="text-left py-2 px-4">Datum</th>
+                      <th className="text-center py-2 px-4 bg-[rgba(0,0,0,0.03)]">Link/Status</th>
+                      <th className="text-center py-2 px-4 bg-[rgba(255,215,48,0.1)]">Wert</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -824,14 +889,28 @@ export default function Home() {
                         <tr key={index} className="border-b border-gray-300 hover:bg-gray-50">
                           <td className="py-2 px-4">
                             <span className={`capitalize px-2 py-1 text-xs ${getTypeBadgeColor(item)}`}>
-                              {item.type}
+                              {translateType(item.type)}
                             </span>
                           </td>
-                          <td className="py-2 px-4 font-medium">{item.name}</td>
+                          <td className="py-2 px-4 font-medium">{item.votum_mitglied}</td>
                           <td className="py-2 px-4 bg-[rgba(0,0,0,0.03)]">{item.partei}</td>
-                          <td className="py-2 px-4">{item["Übersicht vom"].split(" ")[0]}</td>
+                          <td className="py-2 px-4">{formatDate(item["votum_startzeit"])}</td>
                           <td className="text-center py-2 px-4 bg-[rgba(0,0,0,0.03)]">
-                            {item.type === "motion" && item.passed ? (
+                            {item.type === "speech" ? (
+                              item.votum_url ? (
+                                <a
+                                  href={item.votum_url}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="text-[#FFD730] hover:underline inline-flex items-center"
+                                >
+                                  <span className="mr-1">Original</span>
+                                  <ExternalLink size={14} />
+                                </a>
+                              ) : (
+                                <span className="text-gray-400">—</span>
+                              )
+                            ) : (
                               <span
                                 className={`px-2 py-1 text-xs ${
                                   item.passed === "true"
@@ -841,10 +920,8 @@ export default function Home() {
                                       : "bg-[#6C757D] text-white"
                                 }`}
                               >
-                                {item.passed === "true" ? "Passed" : item.passed === "false" ? "Failed" : "Unresolved"}
+                                {translateStatus(item.passed || "unresolved")}
                               </span>
-                            ) : (
-                              <span className="text-gray-400">—</span>
                             )}
                           </td>
                           <td className="text-center py-2 px-4 bg-[rgba(255,215,48,0.1)]">
@@ -860,8 +937,8 @@ export default function Home() {
 
           <Card className="border-black">
             <CardHeader className="border-b border-black">
-              <CardTitle className="text-black">Search Results</CardTitle>
-              <CardDescription>Individual speeches and motions</CardDescription>
+              <CardTitle className="text-black">Suchergebnisse</CardTitle>
+              <CardDescription>Einzelne Reden und Motionen</CardDescription>
             </CardHeader>
             <CardContent>
               <div className="space-y-6">
@@ -873,7 +950,7 @@ export default function Home() {
                       </h3>
                       <div className="flex items-center gap-2 text-sm text-gray-600">
                         <span className={`capitalize px-2 py-1 rounded-none ${getTypeBadgeColor(item)}`}>
-                          {item.type}
+                          {translateType(item.type)}
                         </span>
                         {item.type === "motion" && item.passed && (
                           <span
@@ -885,10 +962,10 @@ export default function Home() {
                                   : "bg-[#6C757D] text-white"
                             }`}
                           >
-                            {item.passed === "true" ? "Passed" : item.passed === "false" ? "Failed" : "Unresolved"}
+                            {translateStatus(item.passed)}
                           </span>
                         )}
-                        <span>{item["Übersicht vom"]}</span>
+                        <span>{formatDate(item["votum_startzeit"])}</span>
                       </div>
                     </div>
                     <p className="text-sm text-gray-700 line-clamp-3">
@@ -896,10 +973,10 @@ export default function Home() {
                         ? item.votum_text.substring(0, 300).replace(/<\/?[^>]+(>|$)/g, "") + "..."
                         : item.votum_text
                           ? item.votum_text.replace(/<\/?[^>]+(>|$)/g, "")
-                          : "No text available"}
+                          : "Kein Text verfügbar"}
                     </p>
                     <div className="mt-2 text-sm">
-                      <span className="text-gray-600">Score: </span>
+                      <span className="text-gray-600">Wert: </span>
                       <span className="font-medium">{item.score}</span>
                     </div>
                     {item.votum_url && (
@@ -907,9 +984,10 @@ export default function Home() {
                         href={item.votum_url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="mt-2 text-[#FFD730] hover:underline text-sm inline-block"
+                        className="mt-2 text-[#FFD730] hover:underline text-sm inline-flex items-center"
                       >
-                        View original
+                        <span className="mr-1">Original ansehen</span>
+                        <ExternalLink size={14} />
                       </a>
                     )}
                   </div>
